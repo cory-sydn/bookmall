@@ -1,0 +1,132 @@
+@use "variables" as *;
+
+#add-form {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  min-height: calc(100vh - 50px);
+  width: 100%;
+  background: $tuscan-sun;
+  .add-book_title {
+    margin-bottom: 20px;
+  }
+
+  form, input, textarea{
+    -moz-box-sizing: border-box;
+    box-sizing: border-box;
+    width:100%;
+    max-width: 450px;
+    font-family: 'Quicksand', sans-serif;
+  }
+
+  .add-book_form {
+    margin-top: 18px;
+    width:100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: center;
+    gap: 18px;
+  }
+
+  .add-book_input {
+    font-size: 16px;
+    width: 100%;
+    color: $black;
+    background: transparent;
+    font-weight: 500;
+    border: 2px solid $sunset-red;
+    padding: 12px 16px;
+    border-radius: 6px;
+    outline: none;
+    &::placeholder {
+      color: $eden;
+      transition: all 0.3s cubic-bezier(0.15, -0.15, 0.265, 1.55);
+    }
+  }
+
+  .add-book_textarea {
+    resize: none;
+    &::-webkit-scrollbar { display: none;}
+  }
+
+  .add-book_button {
+    width: 100%;
+    margin-top: 10px;
+    padding: 10px 0;
+    font-weight: 800;
+    font-size: 18px;
+    border-radius: 6px;
+    border: 1px solid $eden;
+    outline: none;
+    background: linear-gradient($eden, $accent);
+    @include custom-shadow($eden, $accent);
+    cursor: pointer;
+    color: $white;
+    font-family: 'Quicksand', sans-serif;
+  }
+
+  @include responsive-padding;
+}
+
+/*
+*  ---  floating label  ---
+*/
+.form_item {
+  position: relative;
+  width:100%;
+  padding-top: 10px;
+}
+
+.add-book_label {
+  position: absolute;
+  top: 22px;
+  left: 16px;
+  text-align: left;
+  padding: 0px 5px;
+  background:transparent;
+  color: transparent;
+  width: min-content;
+  transition: all 0.3s cubic-bezier(0.68, -0.55, 0.265, 1.55);
+  z-index: 2;
+  cursor: text;
+}
+
+/*  placeholder is NOT active  */
+.form_item .add-book_input:not(:placeholder-shown) + .add-book_label {
+  background: $tuscan-sun;
+  color: $eden;
+  border-radius: 50%;
+  top: 1px;
+  left: 7px;
+  transition: all 0.3s cubic-bezier(0.68, -0.55, 0.265, 1.55);
+}
+
+/*  placeholder is active  */
+.form_item .add-book_input:placeholder-shown + .add-book_label {
+  background:transparent;
+  color: transparent;
+  display: flex;
+  top: 22px;
+  left: 16px;
+  transition: all 0.3s cubic-bezier(0.68, -0.55, 0.265, 1.55);
+}
+
+/* input auto-fill default white removal */
+input:-webkit-autofill,
+input:-webkit-autofill:hover,
+input:-webkit-autofill:focus,
+input:-webkit-autofill:active{
+  box-shadow: 0 0 0 30px $tuscan-sun inset !important;
+  -webkit-box-shadow: 0 0 0 30px $tuscan-sun inset !important;
+}
+
+/*  step-up, step-down buttons  */
+input[type=number]::-webkit-inner-spin-button,
+input[type=number]::-webkit-outer-spin-button
+{
+  appearance: none;
+  -webkit-appearance: none;
+  margin: 0;
+}

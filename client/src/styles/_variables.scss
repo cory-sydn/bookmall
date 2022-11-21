@@ -1,0 +1,54 @@
+@import url('https://fonts.googleapis.com/css2?family=Quicksand:wght@400;500;600;800&display=swap');
+
+$black: #000;
+$white: #fff;
+$text-colour: #262626;
+$accent: #235634;
+$error: #811702;
+$eden: #19615c;
+$navy: navy;
+$iris: #123463;
+$twilight-purple: #904a8e;
+$currant: #6b1937;
+$plum: #450d1d;
+$highlight: #fae59b;
+$sunset-red: #fa653c;
+$sunrise-yellow: #fafcc0;
+$marigold-orange: #eaa33d;
+$tuscan-sun: #fee873;
+$orange: orange ;
+
+@mixin responsive-padding {
+  padding: 1rem 3rem;
+  @media screen and (max-width: 800px) {
+    padding: 1rem 2rem;
+  }
+  @media screen and (max-width: 400px) {
+    padding: 1rem;
+  }
+  @media screen and (max-width: 281px) {
+    padding: 1rem 0.5rem;
+  }
+}
+
+@mixin responsive-margin {
+  margin: 1rem 3rem;
+  @media screen and (max-width: 800px) {
+    margin: 1rem 2rem;
+  }
+  @media screen and (max-width: 400px) {
+    margin: 1rem;
+  }
+  @media screen and (max-width: 281px) {
+    margin: 1rem 0.5rem;
+  }
+}
+
+@mixin custom-shadow($key1, $key2) {
+    box-shadow: 0 0 4px $key1;
+    transition: all 0.3s ease-in-out;
+    &:hover, :focus {
+      box-shadow: 0 0 9px $key2 ;
+      transition: all 0.3s ease-in-out;
+  }
+}
