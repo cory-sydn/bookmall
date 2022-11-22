@@ -2,10 +2,12 @@ import React, { useEffect, useState,useCallback } from 'react'
 import axios from "axios"
 import '../styles/books.scss'
 import {Link, useNavigate} from "react-router-dom"
+import { useAuth0 } from "@auth0/auth0-react";
 
 const Books = () => {
   const [books, setBooks] = useState([]);
   const navigate = useNavigate()
+  const { isAuthenticated } = useAuth0();
 
   const fetchBooks = useCallback(async() => {
     try {
@@ -40,10 +42,12 @@ const Books = () => {
               <p className='book_desc'>{book.description} </p>
               <span>€&nbsp;{book.price} </span>
             </Link>
-            <div className="book_buttons">
-              <button className="book_delete-button" onClick={() => handleDelete(book.id)} >Delete</button>
-              <button className="book_update-button" onClick={() => navigate(`/update/${book.id}`)}>Update</button>
-            </div>
+            {isAuthenticated &&
+              <div className="book_buttons">
+                <button className="book_delete-button" onClick={() => handleDelete(book.id)} >Delete</button>
+                <button className="book_update-button" onClick={() => navigate(`/update/${book.id}`)}>Update</button>
+              </div>
+            }
           </div>
         ))}
       </section>

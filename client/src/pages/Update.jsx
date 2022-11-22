@@ -17,9 +17,9 @@ const Update = () => {
 		const input = e.target.value;
 		const inputName = e.target.name;
     if (inputName === "price") {
-		  setBook((prev) => ({ ...prev, price: input }));
+		  setBook((prev) => ({ ...prev, price: Number(input) }));
     } else {
-      const sanitizedInput = input.trim().replace(/[^a-z,/:&_'0-9\s.-]+/gi, ``);
+      const sanitizedInput = input.trim().replace(/[^a-z,/:&_'0-9\s.,-]+/gi, ``);
 			sanitizedInput && setBook((prev) => ({ ...prev, [inputName]: sanitizedInput }));
     }
 
@@ -34,7 +34,6 @@ const Update = () => {
       try {
         const bookRes = await axios.get(`http://localhost:8800/books/${params.id}`)
         setBook(...bookRes.data)
-        document.getElementById("book-price").defaultValue = bookRes.data.price;
       } catch (err) {
         console.log(err);
       }
@@ -50,7 +49,7 @@ const Update = () => {
       console.log(err);
     }
 	};
-
+console.log(book.price);
 	return (
 		<section id="add-form">
 			<h2 className="add-book_title">Update Book</h2>
@@ -98,10 +97,10 @@ const Update = () => {
 						type="number"
 						className="add-book_input"
 						name="price"
-						placeholder={book.price}
+						placeholder="Price"
             defaultValue={book.price}
 						onChange={handleInput}
-						min="0"
+						min={0}
 					/>
 					<label className="add-book_label" htmlFor="price" >Price</label>
 				</div>

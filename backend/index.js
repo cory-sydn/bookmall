@@ -1,7 +1,7 @@
-import express from "express";
-import mysql from "mysql";
-
-const app = express();
+const mysql = require('mysql');
+const express = require("express")
+const app = express()
+require("dotenv").config()
 
 const db = mysql.createConnection({
   host: "localhost",
@@ -12,7 +12,7 @@ const db = mysql.createConnection({
 
 app.use(function(req, res, next) {
   res.header('Access-Control-Allow-Credentials', true);
-  res.header('Access-Control-Allow-Origin', "*");
+  res.header('Access-Control-Allow-Origin', `${process.env.BASE_URL}`);
   res.header('Access-Control-Allow-Methods', 'GET,PUT,POST,DELETE,UPDATE,OPTIONS');
   res.header('Access-Control-Allow-Headers', 'X-Requested-With, X-HTTP-Method-Override, Content-Type, Accept');
 	res.header("Access-Control-Expose-Headers", "Set-Cookie",)
@@ -20,10 +20,6 @@ app.use(function(req, res, next) {
 });
 
 app.use(express.json());
-
-app.get("/", (req, res) => {
-  res.json("Wellcome to the bookmall backend server")
-})
 
 app.get("/books", (req,res) => {
   const q = "SELECT * FROM books"

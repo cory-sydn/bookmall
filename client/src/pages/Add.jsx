@@ -17,9 +17,9 @@ const Add = () => {
 		const input = e.target.value;
 		const inputName = e.target.name;
     if (inputName === "price") {
-		  setBook((prev) => ({ ...prev, price: input }));
+		  setBook((prev) => ({ ...prev, price: Number(input) }));
     } else {
-      const sanitizedInput = input.trim().replace(/[^a-z,/_&:'0-9\s.-]+/gi, ``);
+      const sanitizedInput = input.trim().replace(/[^a-z,/_&:'0-9\s.,-]+/gi, ``);
 			sanitizedInput && setBook((prev) => ({ ...prev, [inputName]: sanitizedInput }));
     }
 

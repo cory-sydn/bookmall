@@ -1,0 +1,75 @@
+@use "variables" as *;
+
+.bookmall_header {
+  position: sticky;
+  top: 0;
+  left: 0;
+  z-index: 99;
+  background: $tuscan-sun;
+  height: 50px;
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0 20px;
+  #logo {
+    padding: 5px 20px;
+  }
+
+}
+#navbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 20px;
+  width: 50%;
+  .nav-link {
+    display: block;
+    width: 130px;
+  }
+  .user_profile {
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+    img {
+      width: 35px;
+      height: 35px;
+      border-radius: 50%  ;
+    }
+    position: relative;
+    .profile_dropdown {
+      background: $sunset-red;
+      position: absolute;
+      top: 35px;
+      right: 0;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 10px;
+      padding: 10px;
+      border-radius: 5px;
+      filter: drop-shadow(0 0 15px #0005);
+    }
+  }
+}
+
+.nav-auth_button {
+  color: $highlight;
+  font-weight: 600;
+  width: max-content;
+  border-radius: 6px;
+  padding: 6px 15px;
+  outline: none;
+  border: 1px solid $accent;
+  background: linear-gradient($eden, $accent);
+  cursor: pointer;
+  &:hover {
+    filter: hue-rotate(20deg)
+  }
+}
+
+.logout_button {
+  color: black;
+  border: 1px solid $tuscan-sun;
+  background: linear-gradient($tuscan-sun, $marigold-orange);
+}
