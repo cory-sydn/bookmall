@@ -1,11 +1,13 @@
 @use 'variables' as *;
 
 body {
-  background-image: linear-gradient(to top, #eaa33d70, #fae59b70), url("https://wallpaperaccess.com/full/253426.jpg");
+  background-image: linear-gradient(to top, #6565924b, #5b5b905f), url("https://wallpaperaccess.com/full/253426.jpg");
   background-attachment: fixed;
   background-position: center;
   background-repeat: no-repeat;
   filter: brightness(90%);
+  backdrop-filter: blur(2.6px);
+-webkit-backdrop-filter: blur(2.6px);
 }
 
 .books {
@@ -28,6 +30,23 @@ body {
 	flex-direction:column;
 	align-items: center;
 	justify-content: flex-start;
+  padding: 20px 10px 10px;
+  border-radius: 16px;
+  box-shadow: 0 4px 30px rgba(0, 0, 0, 0.807) ,  0 0 10px rgba(0, 0, 0, 0.807) inset;
+  border: 1px solid rgba(255, 255, 255, 0.115);
+  position: relative;
+  &::after {
+    z-index: -1;
+    content: "";
+    position: absolute;
+    inset: 0;
+    border-radius: 16px;
+    background-image: linear-gradient(to top, #4a4e69b5, #9a8c98ab);
+    box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+    backdrop-filter: blur(5.6px);
+    -webkit-backdrop-filter: blur(5.6px);
+    border: 1px solid rgba(255, 255, 255, 0.26);
+  }
   img {
     flex: 1;
     width: 100%;

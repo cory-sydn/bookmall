@@ -39,7 +39,7 @@ const Books = () => {
             <Link to={"/book/"+book.id} >
               <img src={book.cover} alt="book" />
               <h2>{book.title} </h2>
-              <p className='book_desc'>{book.description} </p>
+              <p className='book_desc'>{book.description.length > 60 ? `${book.description.substring(0, 60)}...` : book.description } </p>
               <span>€&nbsp;{book.price} </span>
             </Link>
             {isAuthenticated &&

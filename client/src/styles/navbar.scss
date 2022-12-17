@@ -1,11 +1,18 @@
 @use "variables" as *;
 
+@font-face {
+  font-family: Ropers;
+  src: url("../../public/Ropers.ttf");
+}
+
 .bookmall_header {
+  font-family: Ropers, 'Open Sans', 'Helvetica Neue', sans-serif  ;
+  color: antiquewhite;
   position: sticky;
   top: 0;
   left: 0;
   z-index: 99;
-  background: $tuscan-sun;
+  background-image: linear-gradient(to top, #22223b, #22223b);
   height: 50px;
   width: 100%;
   display: flex;
@@ -38,6 +45,7 @@
     }
     position: relative;
     .profile_dropdown {
+      font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
       background: $sunset-red;
       position: absolute;
       top: 35px;
@@ -54,14 +62,15 @@
 }
 
 .nav-auth_button {
-  color: $highlight;
+  font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+  color: $navy;
   font-weight: 600;
   width: max-content;
   border-radius: 6px;
   padding: 6px 15px;
   outline: none;
-  border: 1px solid $accent;
-  background: linear-gradient($eden, $accent);
+  border: 1px solid #dde5b6;
+  background: linear-gradient(#adc178, #dde5b6);
   cursor: pointer;
   &:hover {
     filter: hue-rotate(20deg)
@@ -69,6 +78,7 @@
 }
 
 .logout_button {
+  font-family: Ropers, 'Open Sans', 'Helvetica Neue', sans-serif ;
   color: black;
   border: 1px solid $tuscan-sun;
   background: linear-gradient($tuscan-sun, $marigold-orange);
